@@ -1,0 +1,212 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #006400; /* Dark green */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-style: italic; /* Roman Italics */
+}
+
+.head {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  font-size: 1rem;
+  border-radius: 8px;
+  color: #ffffff;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(1);
+}
+
+button.selected {
+  background: linear-gradient(135deg, #0000FF, #000080);
+  font-weight: bold;
+}
+
+button:not(.selected) {
+  background-color: black;
+  color: #f0f0f0;
+}
+
+button:not(.selected):hover {
+  background-color: #444;
+}
+
+button.submit-btn {
+  background-color: blue; /* Blue color for the Run button */
+}
+
+button.submit-btn:hover {
+  background-color: #003366; /* Darker blue on hover */
+}
+
+/* Main Layout Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  min-width: 1200px;
+  width: 100%;
+  background: rgba(25, 25, 25, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Editor Container */
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1f1f1f;
+  padding: 20px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.editor-container .submit-btn {
+  background: linear-gradient(135deg, #b30000, #ff3333);
+  color: #ffffff;
+  border-radius: 8px;
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 1rem;
+  align-self: flex-start;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.editor-container .submit-btn:hover {
+  background: linear-gradient(135deg, #ff3333, #b30000);
+}
+
+/* Output Container */
+.output-container {
+  flex: 1;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.output-container h3 {
+  color: #ff4c4c;
+  font-size: 1rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.output-container pre {
+  background-color: #1b1b1b;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  max-height: 50vh;
+  font-size: 0.85rem;
+  color: #f8f8f2;
+  margin: 0;
+}
+
+/* Editor Buttons */
+.editor-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Loader Animation */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #ff4c4c;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    height: 80vh;
+  }
+
+  .editor-container, .output-container {
+    min-width: 48%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    gap: 15px;
+  }
+
+  .editor-container, .output-container {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .output-container h3 {
+    font-size: 0.9rem;
+  }
+}
